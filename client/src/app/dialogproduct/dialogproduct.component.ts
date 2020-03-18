@@ -15,7 +15,8 @@ import { Data } from '../models/data';
 export class DialogproductComponent implements OnInit {
   addForm: FormGroup;
   submitted = false;
-
+  todos:any;
+  edit:boolean = false;
   products: Data[];
 
   constructor(
@@ -36,6 +37,10 @@ export class DialogproductComponent implements OnInit {
     return this.addForm.controls;
   }
 
+  getTodos() {
+    this.userService.getData().subscribe((res) => this.todos = res);
+    console.log('data',this.todos);
+  }
 
   onSubmit(){
     this.submitted = true;
@@ -43,10 +48,12 @@ export class DialogproductComponent implements OnInit {
 
     this.userService.addData(this.addForm.value)
     .subscribe(res => {
+
     });
 
     this.dialogRef.close();
   }
+
 
   onNoClick(): void {
     this.dialogRef.close();

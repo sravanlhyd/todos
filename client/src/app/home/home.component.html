@@ -25,9 +25,9 @@
     <tbody>
       <tr *ngFor="let todo of todos | filter:term">
         <td>{{todo.title}}
-            <button (click)="openDialog()">Edit</button>
+            <!-- <button (click)="update(todo)">Edit</button> -->
             <!-- based on id -->
-            <button (click)="delete()">Delete</button> 
+            <button (click)="delete(todo)">Delete</button> 
         </td>
         <td>{{todo.createdAt}}</td>
       </tr>

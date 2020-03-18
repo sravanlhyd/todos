@@ -12,6 +12,6 @@
 
     <div mat-dialog-actions>
         <button mat-button (click)="onNoClick()">Cancel</button>
-        <button mat-button cdkFocusInitial>Add</button>
+        <button *ngIf="!submitted" mat-button cdkFocusInitial>Add</button>
       </div>
 </form>

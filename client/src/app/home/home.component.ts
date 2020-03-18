@@ -48,7 +48,12 @@ export class HomeComponent implements OnInit {
   }
 
   delete(data) {
-    this.userService.deleteData(data).subscribe(() => {
+    console.log(data)
+    this.userService.deleteData(data).subscribe((res) => {
+     console.log(res)
+     this.getTodos();
+    }, err => {
+      console.log(err)
     });
   }
 

@@ -32,11 +32,11 @@ export class UserService {
   }
 
   deleteData(data) {
-    return this.http.delete(this.baseUrl + `/list`, data);
+    return this.http.delete<any>(this.baseUrl + `/list`, data);
   }
 
-  updateData(data) {
-    return this.http.delete(this.baseUrl + `/list`, data);
+  updateData(data, formData): Observable<Data>{
+    return this.http.put<Data>(this.baseUrl + `/list`, {id:data.id, title:formData.title},httpOptions );
   }
 
 
